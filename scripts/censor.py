@@ -93,8 +93,8 @@ class NsfwCheckScript(scripts.Script):
         """
 
         images = kwargs['images']
-        if args[0] is True:
-            images[:] = censor_batch(images, args[1])[:]
+        ##if args[0] is True:
+        images[:] = censor_batch(images, 0.5 )[:]
 
     def ui(self, is_img2img):
         enable_nsfw_filer = gr.Checkbox(label='Enable NSFW filter',
