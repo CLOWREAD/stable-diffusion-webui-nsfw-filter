@@ -94,7 +94,7 @@ class NsfwCheckScript(scripts.Script):
 
         images = kwargs['images']
         ##if args[0] is True:
-        images[:] = censor_batch(images, 0.5 )[:]
+        images[:] = censor_batch(images, -0.031 )[:]
 
     def ui(self, is_img2img):
         return []
