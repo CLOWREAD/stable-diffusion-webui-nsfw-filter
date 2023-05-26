@@ -97,6 +97,8 @@ class NsfwCheckScript(scripts.Script):
         images[:] = censor_batch(images, 0.5 )[:]
 
     def ui(self, is_img2img):
+        return []
+        '''
         enable_nsfw_filer = gr.Checkbox(label='Enable NSFW filter',
                                         value=False,
                                         elem_id=self.elem_id("enable_nsfw_filer"))
@@ -104,3 +106,4 @@ class NsfwCheckScript(scripts.Script):
                                        minimum=-0.5, maximum=0.5, value=0.0, step=0.001,
                                        elem_id=self.elem_id("safety_checker_adj"))
         return [enable_nsfw_filer, safety_checker_adj]
+        '''
