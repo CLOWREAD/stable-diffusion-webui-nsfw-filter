@@ -55,6 +55,17 @@ def censor_batch(x, safety_checker_adj: float):
     x = torch.from_numpy(x_checked_image).permute(0, 3, 1, 2)
 
     index = 0
+    print(has_nsfw_concept);
+    print(x.size());
+    for i in range( x.size()[0]):
+        hwc = x.shape
+        y = Image.open(warning_image).convert("RGB").resize((hwc[3], hwc[2]))
+        y = (np.array(y) / 255.0).astype("float32")
+        y = torch.from_numpy(y)
+        y = torch.unsqueeze(y, 0).permute(0, 3, 1, 2)
+        #x[index] = y
+        print(y.size());
+        print(x[i].size());
     for unsafe_value in has_nsfw_concept:
         try:
             if unsafe_value is True:
